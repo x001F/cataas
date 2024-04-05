@@ -1,0 +1,62 @@
+commands:
+  cat: Random cat :)
+  catfilter: Random cat with image filter (mono, negate, custom (rgb, HSL maybe will
+    be in future))
+  catgif: Random cat gif :))
+  catgifsays: Random gif cat saying :text
+  catgifsaysmore: Random gif cat saying :text with parameters
+  catsays: Random cat saying :text
+  catsaysmore: Random cat saying :text with parameters
+  catsize: Random cat with image :width and :height
+  cattype: Random cat with image :type (xsmall, small, medium, or square)
+  help: Help
+  order:
+  - "start"
+  - "help"
+  - "cat"
+  - "catsays"
+  - "catsaysmore"
+  - "catgif"
+  - "catgifsays"
+  - "catgifsaysmore"
+  - "cattype"
+  - "catsize"
+  - "catfilter"
+  start: Restarts the bot
+logging:
+  disable_existing_loggers: false
+  formatters:
+    base:
+      format: '%(levelname)s | %(asctime)s | %(funcName)s | %(name)s | %(message)s'
+  handlers:
+    console:
+      class: logging.StreamHandler
+      formatter: base
+    file:
+      backupCount: 7,
+      class: logging.handlers.TimedRotatingFileHandler
+      encoding: utf-8
+      filename: logs/.log
+      formatter: base
+      interval: 5
+      when: m
+  loggers:
+    main:
+      handlers:
+      - file
+      - console
+      level: INFO
+    main.api:
+      handlers:
+      - file
+      - console
+      level: DEBUG
+      propagate: false
+    main.handlers:
+      handlers:
+      - file
+      - console
+      level: INFO
+      propagate: false
+  propagate: false
+  version: 1
